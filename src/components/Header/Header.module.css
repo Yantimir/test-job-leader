@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+  margin-bottom: 30px;
+}
+
+.headerTitle {
+  font-size: 23px;
+  color: #1D1D1B;
+}
+
+.headerCart {
+  display: flex;
+  align-items: center;
+}
+
+.headerCart p {
+  font-size: var(--fs-text);
+  font-weight: var(--fw-700);
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.headerCart p:hover {
+  color: var(--color-green);
+}
+
+.headerCart span {
+  background-color: var(--color-green);
+  height: 21px;
+  width: 21px;
+  border-radius: 20px;
+  padding: 5px 6.5px;
+  color: var(--color-white);
+  font-size: 12px;
+}
