@@ -1,10 +1,14 @@
-import { Header } from "./components/Header/Header";
+import { useContext, useEffect } from "react";
+
 import { HomePage } from "../src/pages/HomePage";
 import { CartPage } from "../src/pages/CartPage";
 import { Routes, Route } from "react-router-dom";
 import { ShopContext } from "./context/context";
-import { useContext, useEffect } from "react";
+
 import { data } from "./data/data";
+
+import { Header } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
 
@@ -22,6 +26,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="cart" element={<CartPage />} />
       </Routes>
+      <Footer/>
     </div>
 
   );

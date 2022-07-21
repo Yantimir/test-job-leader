@@ -32,7 +32,7 @@
   padding-bottom: 20px;
 }
 
-.button {
+.buttonBlue {
   background-color: var(--color-blue);
   border: 1px solid var(--color-blue);
   display: block;
@@ -43,6 +43,21 @@
   /* font-size: calc(4px + 8 * (100vw / 1170)); */
   font-weight: var(--fw-500);
   padding: 12px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.buttonGreen {
+  background-color: var(--color-green);
+  border: 1px solid var(--color-green);
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: var(--fw-500);
+  padding: 12px 53px;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.05em;

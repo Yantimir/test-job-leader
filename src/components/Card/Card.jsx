@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import style from "./Card.module.css";
-// import img from "../../assets/image1.jpg";
+import { ShopContext } from "../../context/context";
 
-export const Card = ({ img, name, price }) => {
 
+export const Card = ({ id, img, name, price }) => {
+
+  const { addToBasket, order = [] } = useContext(ShopContext);
   const [width, setWidth] = useState(window.innerWidth);
   const [hover, setHover] = useState(false);
   const breackpoint = 690;
-
+  console.log(order)
   const handleHoverCard = () => {
     setHover(!hover);
   }
@@ -34,7 +36,16 @@ export const Card = ({ img, name, price }) => {
           <h2 className={style.title}>{name}</h2>
           <h3 className={style.price}>{price} ₽</h3>
           {hover
-            ? <button className={style.button}>Добавить в корзину</button>
+            ?
+            <button className={style.buttonBlue} onClick={() => {
+              addToBasket({
+                id,
+                name,
+                price,
+                img,
+              })
+            }}
+            >Добавить в корзину</button>
             : null
           }
         </div>
@@ -49,7 +60,14 @@ export const Card = ({ img, name, price }) => {
       <div>
         <h2 className={style.title}>{name}</h2>
         <h3 className={style.price}>{price} ₽</h3>
-        <button className={style.button}>Добавить в корзину</button>
+        <button className={style.buttonBlue} onClick={() => {
+          addToBasket({
+            id,
+            name,
+            price,
+            img,
+          })
+        }}>Добавить в корзину</button>
       </div>
     </div>
   );
