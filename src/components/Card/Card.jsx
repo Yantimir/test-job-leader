@@ -5,11 +5,15 @@ import { ShopContext } from "../../context/context";
 
 export const Card = ({ id, img, name, price }) => {
 
-  const { addToBasket, order = [] } = useContext(ShopContext);
+  const {
+    addToBasket,
+    // order = [] 
+  } = useContext(ShopContext);
   const [width, setWidth] = useState(window.innerWidth);
   const [hover, setHover] = useState(false);
+  const [clickButton, setClickButton] = useState("blue");
   const breackpoint = 690;
-  console.log(order)
+
   const handleHoverCard = () => {
     setHover(!hover);
   }
@@ -21,6 +25,10 @@ export const Card = ({ id, img, name, price }) => {
       window.removeEventListener("resize", handleResizeWindow);
     }
   }, []);
+
+  const handleClickButton = () => {
+    setClickButton("green");
+  }
 
   if (width > breackpoint) {
     return (
@@ -36,20 +44,23 @@ export const Card = ({ id, img, name, price }) => {
           <h2 className={style.title}>{name}</h2>
           <h3 className={style.price}>{price} ₽</h3>
           {hover
-            ?
-            <button className={style.buttonBlue} onClick={() => {
-              addToBasket({
-                id,
-                name,
-                price,
-                img,
-              })
-            }}
-            >Добавить в корзину</button>
+            ? (clickButton === "green"
+              ? <button className={style.buttonGreen}>В корзине </button>
+              : <button className={style.buttonBlue} onClick={() => {
+                addToBasket({
+                  id,
+                  name,
+                  price,
+                  img,
+                })
+                handleClickButton();
+              }}
+              >Добавить в корзину</button>
+            )
             : null
           }
-        </div>
-      </div>
+        </div >
+      </div >
     );
   }
   return (
@@ -60,14 +71,19 @@ export const Card = ({ id, img, name, price }) => {
       <div>
         <h2 className={style.title}>{name}</h2>
         <h3 className={style.price}>{price} ₽</h3>
-        <button className={style.buttonBlue} onClick={() => {
-          addToBasket({
-            id,
-            name,
-            price,
-            img,
-          })
-        }}>Добавить в корзину</button>
+        {clickButton === "green"
+          ? <button className={style.buttonGreen}>В корзине </button>
+          : <button className={style.buttonBlue} onClick={() => {
+            addToBasket({
+              id,
+              name,
+              price,
+              img,
+            })
+            handleClickButton();
+          }}
+          >Добавить в корзину</button>
+        }
       </div>
     </div>
   );

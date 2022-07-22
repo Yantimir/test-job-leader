@@ -14,6 +14,8 @@
 .headerCart {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .headerCart p {
@@ -23,10 +25,6 @@
   margin-left: 10px;
   margin-right: 10px;
   transition: 0.2s ease;
-}
-
-.headerCart p:hover {
-  color: var(--color-green);
 }
 
 .headerCart span {
@@ -43,15 +41,13 @@
 
 .cartWrapper {
   display: flex;
-  cursor: pointer;
 }
-.cartWrapper:hover {
+
+.cartWrapper:hover * {
   color: var(--color-green);
-  
-}
-.cart:hover {
   fill: var(--color-green);
 }
+
 
 @media (max-width: 510px) {
   .headerCart span {

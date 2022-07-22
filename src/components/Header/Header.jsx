@@ -3,6 +3,7 @@ import { ShopContext } from "../../context/context";
 import style from "./Header.module.css";
 import { ReactComponent as Cart } from "../../assets/cart.svg";
 import leader from "../../assets/leader-big.png";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
 
@@ -17,20 +18,23 @@ export const Header = () => {
       window.removeEventListener("resize", handleResizeWindow);
     }
   }, []);
+
   if (width > breackpoint) {
     return (
       <div className={style.header}>
-      <div className={style.headerTitle}>
-        <img src={leader} alt="Leader" />
-      </div>
-      <div className={style.headerCart}>
-        <div className={style.cartWrapper}>
-          <Cart className={style.cart}/>
-          <p>Корзина</p>
+        <div className={style.headerTitle}>
+          <img src={leader} alt="Leader" />
         </div>
-        {order.length ? <span>{order.length}</span> : null}
+        <Link to="/cart">
+          <div className={style.headerCart}>
+            <div className={style.cartWrapper}>
+              <Cart className={style.cart} />
+              <p>Корзина</p>
+            </div>
+            {order.length ? <span>{order.length}</span> : null}
+          </div>
+        </Link>
       </div>
-    </div>
     )
   }
   return (
@@ -38,13 +42,14 @@ export const Header = () => {
       <div className={style.headerTitle}>
         <img src={leader} alt="Leader" />
       </div>
-      <div className={style.headerCart}>
-        <div className={style.cartWrapper}>
-          <Cart className={style.cart}/>
-          {/* <p>Корзина</p> */}
+      <Link to="/cart">
+        <div className={style.headerCart}>
+          <div className={style.cartWrapper}>
+            <Cart className={style.cart} />
+          </div>
+          {order.length ? <span>{order.length}</span> : null}
         </div>
-        {order.length ? <span>{order.length}</span> : null}
-      </div>
+      </Link>
     </div>
   )
 }

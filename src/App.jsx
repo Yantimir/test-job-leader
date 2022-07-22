@@ -22,11 +22,13 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="cart" element={<CartPage />} />
-      </Routes>
-      <Footer/>
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
 
   );
