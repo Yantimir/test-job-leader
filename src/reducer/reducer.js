@@ -14,18 +14,7 @@ export function reducer(state, action) {
           cartCount: 1,
         }
         newOrder = [...state.order, newItem]
-      } else {
-        newOrder = state.order.map((orderItem, index) => {
-          if (index === itemIndex) {
-            return {
-              ...orderItem,
-              cartCount: orderItem.cartCount + 1,
-            }
-          } else {
-            return orderItem;
-          }
-        });
-      }
+      } 
       return {
         ...state,
         order: newOrder,

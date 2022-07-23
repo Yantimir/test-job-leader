@@ -5,10 +5,7 @@ import { ShopContext } from "../../context/context";
 
 export const Card = ({ id, img, name, price }) => {
 
-  const {
-    addToBasket,
-    // order = [] 
-  } = useContext(ShopContext);
+  const { addToBasket } = useContext(ShopContext);
   const [width, setWidth] = useState(window.innerWidth);
   const [hover, setHover] = useState(false);
   const [clickButton, setClickButton] = useState("blue");
@@ -54,8 +51,7 @@ export const Card = ({ id, img, name, price }) => {
                   img,
                 })
                 handleClickButton();
-              }}
-              >Добавить в корзину</button>
+              }}>Добавить в корзину</button>
             )
             : null
           }
@@ -81,8 +77,7 @@ export const Card = ({ id, img, name, price }) => {
               img,
             })
             handleClickButton();
-          }}
-          >Добавить в корзину</button>
+          }}>Добавить в корзину</button>
         }
       </div>
     </div>

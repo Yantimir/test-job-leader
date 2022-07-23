@@ -54,3 +54,8 @@
     margin-left: 7px;
   }
 }
+@media (max-width: 320px) {
+  .header {
+    margin-bottom: 20px;
+  }
+}
