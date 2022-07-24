@@ -5,7 +5,6 @@ import style from "./style.module.css";
 
 export const Cart = () => {
   const { order } = useContext(ShopContext);
-  console.log(order)
   const totalPrice = order.reduce((sum, element) => {
     return sum + element.price * element.cartCount;
   }, 0);
@@ -13,7 +12,7 @@ export const Cart = () => {
   return (
     <>
       <h2 className={style.title}>Корзина</h2>
-      {order.length > 0 && order.map(item => <CartItem key={item.id} {...item} />)}
+      {order.length > 0 && order.map(item => <CartItem key={item.id} {...item} totalPrice={totalPrice}/>)}
       {totalPrice > 0 && <h3 className={style.total}>Сумма {totalPrice} ₽</h3>}
     </>
   )

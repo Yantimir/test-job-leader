@@ -23,13 +23,13 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: "REMOVE_FROM_BASKET", payload: { id: itemId } });
   }
 
-  // value.setIncrementOrder = (itemId) => {
-  //   dispatch({ type: "SET_INCREMENT_ORDER", payload: { id: itemId } });
-  // }
+  value.setIncrementOrder = (itemId) => {
+    dispatch({ type: "SET_INCREMENT_ORDER", payload: { id: itemId } });
+  }
 
-  // value.setDecrementOrder = (itemId) => {
-  //   dispatch({ type: "SET_DECREMENT_ORDER", payload: { id: itemId } });
-  // }
+  value.setDecrementOrder = (itemId) => {
+    dispatch({ type: "SET_DECREMENT_ORDER", payload: { id: itemId } });
+  }
   return (
     <ShopContext.Provider value={value}>
       {children}

@@ -14,7 +14,7 @@ export function reducer(state, action) {
           cartCount: 1,
         }
         newOrder = [...state.order, newItem]
-      } 
+      }
       return {
         ...state,
         order: newOrder,
@@ -25,41 +25,42 @@ export function reducer(state, action) {
         ...state,
         order: state.order.filter(item => item.id !== action.payload.id)
       }
-   
-    // case "SET_INCREMENT_ORDER": {
-    //   let newOrder = state.order.map(item => {
-    //     if (item.id === action.payload.id) {
-    //       let newCartCount = item.cartCount + 1;
-    //       return {
-    //         ...item,
-    //         cartCount: newCartCount
-    //       }
-    //     } else {
-    //       return item;
-    //     }
-    //   });
-    //   return {
-    //     ...state,
-    //     order: newOrder,
-    //   }
-    // }
-    // case "SET_DECREMENT_ORDER": {
-    //   let newOrder = state.order.map(item => {
-    //     if (item.id === action.payload.id) {
-    //       let newCartCount = item.cartCount - 1;
-    //       return {
-    //         ...item,
-    //         cartCount: newCartCount
-    //       }
-    //     } else {
-    //       return item;
-    //     }
-    //   });
-    //   return {
-    //     ...state,
-    //     order: newOrder
-    //   }
-    // }
+
+    case "SET_INCREMENT_ORDER": {
+      // eslint-disable-next-line array-callback-return
+      let newOrder = state.order.map(item => {
+        if (item.id === action.payload.id) {
+          let newCartCount = item.cartCount + 1;
+          return {
+            ...item,
+            cartCount: newCartCount
+          }
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        order: newOrder,
+      }
+    }
+    case "SET_DECREMENT_ORDER": {
+      let newOrder = state.order.map(item => {
+        if (item.id === action.payload.id) {
+          let newCartCount = item.cartCount - 1;
+          return {
+            ...item,
+            cartCount: newCartCount
+          }
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        order: newOrder
+      }
+    }
     default:
       return state;
   }
