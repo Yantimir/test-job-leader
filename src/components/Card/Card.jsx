@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import style from "./Card.module.css";
 import { ShopContext } from "../../context/context";
 
-
 export const Card = ({ id, img, name, price }) => {
 
   const { addToBasket } = useContext(ShopContext);

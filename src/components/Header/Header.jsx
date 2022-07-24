@@ -24,7 +24,7 @@ export const Header = () => {
     return (
       <div className={style.header}>
         <div className={style.headerTitle}>
-          <img src={leader} alt="Leader" />
+          <Link to="/"><img src={leader} alt="Leader" /></Link>
         </div>
         {order.length
           ? <Link to="/cart">
@@ -50,7 +50,7 @@ export const Header = () => {
   return (
     <div className={style.header}>
       <div className={style.headerTitle}>
-        <img src={leaderSm} alt="Leader" />
+      <Link to="/"><img src={leaderSm} alt="Leader" /></Link>
       </div>
       {order.length
         ? <Link to="/cart">

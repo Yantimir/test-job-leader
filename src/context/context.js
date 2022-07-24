@@ -19,9 +19,9 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: "ADD_TO_BASKET", payload: item });
   }
 
-  // value.removeFromBasket = (itemId) => {
-  //   dispatch({ type: "REMOVE_FROM_BASKET", payload: { id: itemId } });
-  // }
+  value.removeFromBasket = (itemId) => {
+    dispatch({ type: "REMOVE_FROM_BASKET", payload: { id: itemId } });
+  }
 
   // value.setIncrementOrder = (itemId) => {
   //   dispatch({ type: "SET_INCREMENT_ORDER", payload: { id: itemId } });

@@ -1,14 +1,125 @@
 .cart {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid var(--color-light-grey);
   margin-top: 42px;
+  padding: 0 15px;
 }
-
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
 .img {
   width: 135px;
   height: 150px;
   margin-bottom: 38px;
-  padding-left: 15px;
+  margin-right: 65px;
+}
+.name {
+  width: 100%;
+  max-width: 270px;
+  line-height: 130%;
+}
+
+.count {
+  display: flex;
+}
+
+.minus, .plus  {  
+  display: inline-block;
+  padding-left: 8px;
+  height: 38px;
+  width: 42px;
+  background-color: transparent;
+  border: 1px solid var(--color-light-grey);
+}
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: var(--fw-700);
+}
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  padding-right: 12px;
+}
+.cartCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--color-light-grey);
+  border-bottom: 1px solid var(--color-light-grey);
+  height: 38px;
+  width: 75px;
+  font-size: var(--fs-text);
+  font-weight: var(--fw-600);
+}
+
+@media (max-width: 690px) {
+  .cart {
+    flex-direction: column;
+  }
+  .info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .img {
+    width: 335px;
+    height: 400px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+  .name {
+    text-align: center;
+    width: 100%;
+    max-width: 270px;
+    line-height: 130%;
+    margin-bottom: 15px;
+  }
+  .price {
+    margin-bottom: 20px;
+  }
+  .count {
+    margin-bottom: 20PX;
+  }
+  .buttonBlue {
+    display: block;
+    margin: 0 auto;
+    background-color: var(--color-blue);
+    width: 100%;
+    max-width: 170px;
+    height: 40px;
+    color: var(--color-white);
+    font-size: 16px;
+    line-height: 12px;
+    white-space: nowrap;
+    font-weight: var(--fw-500);
+    border: 1px solid transparent;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .buttonText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .img {
+    width: 160px;
+    height: 180px;
+    margin-bottom: 30px;
+  }
+  .name {
+    margin-bottom: 20px;
+  }
 }

@@ -12,9 +12,9 @@ export const Cart = () => {
 
   return (
     <>
-      <h2 className={style.cartTitle}>Корзина</h2>
+      <h2 className={style.title}>Корзина</h2>
       {order.length > 0 && order.map(item => <CartItem key={item.id} {...item} />)}
-      <h3 className={style.total}>Сумма {totalPrice} ₽</h3>
+      {totalPrice > 0 && <h3 className={style.total}>Сумма {totalPrice} ₽</h3>}
     </>
   )
 }

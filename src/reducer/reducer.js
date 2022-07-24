@@ -20,11 +20,11 @@ export function reducer(state, action) {
         order: newOrder,
       }
     }
-    // case "REMOVE_FROM_BASKET":
-    //   return {
-    //     ...state,
-    //     order: state.order.filter(item => item.id !== action.payload.id)
-    //   }
+    case "REMOVE_FROM_BASKET":
+      return {
+        ...state,
+        order: state.order.filter(item => item.id !== action.payload.id)
+      }
    
     // case "SET_INCREMENT_ORDER": {
     //   let newOrder = state.order.map(item => {

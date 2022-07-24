@@ -1,8 +1,7 @@
-.cartTitle {
+.title {
   text-align: center;
   font-size: var(--fs-h1);
   font-weight: var(--fw-700);
-  margin-bottom: 45px;
 }
 
 .total {
@@ -11,4 +10,18 @@
   font-weight: var(--fw-700);
   margin-right: 48px;
   margin-top: 32px;
+}
+
+@media (max-width: 690px) {
+  .total {
+    margin-right: 0;
+    text-align: center;
+    font-size: var(--fs-h2);
+  }
+}
+
+@media (max-width: 3200px) {
+  .title {
+    font-size: var(--fs-h2);
+  }
 }
