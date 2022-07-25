@@ -27,7 +27,6 @@ export function reducer(state, action) {
       }
 
     case "SET_INCREMENT_ORDER": {
-      // eslint-disable-next-line array-callback-return
       let newOrder = state.order.map(item => {
         if (item.id === action.payload.id) {
           let newCartCount = item.cartCount + 1;

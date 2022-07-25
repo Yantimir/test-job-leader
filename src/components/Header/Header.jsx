@@ -4,13 +4,14 @@ import style from "./Header.module.css";
 import { ReactComponent as Cart } from "../../assets/cart.svg";
 import leader from "../../assets/leader-big.png";
 import leaderSm from "../../assets/leader-small.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = () => {
 
   const { order = [] } = useContext(ShopContext);
   const [width, setWidth] = useState(window.innerWidth);
   const breackpoint = 510;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
@@ -19,6 +20,11 @@ export const Header = () => {
       window.removeEventListener("resize", handleResizeWindow);
     }
   }, []);
+
+  useEffect(() => {
+    if (order.length === 0) return navigate("/", { replace: true });
+    //eslint-disable-next-line
+  }, [order]);
 
   if (width > breackpoint) {
     return (
@@ -50,7 +56,7 @@ export const Header = () => {
   return (
     <div className={style.header}>
       <div className={style.headerTitle}>
-      <Link to="/"><img src={leaderSm} alt="Leader" /></Link>
+        <Link to="/"><img src={leaderSm} alt="Leader" /></Link>
       </div>
       {order.length
         ? <Link to="/cart">
