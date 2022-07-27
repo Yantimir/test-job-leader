@@ -18,16 +18,20 @@
 .inputForm {
   padding: 20px 26px;
   display: block;
-  margin:  0 0 30px 0;
+  margin:  30px 0 0 0;
   width: 100%;
   font-size: 16px;
+  background-color: #ffffff;
+}
+.inputForm:focus {
+  outline: 1px solid #4892EC;
 }
 
 .errorMessage {
   text-align: start;
   color: red;
-  font-size: 10px;
-  margin-top: 0;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .form {
@@ -42,10 +46,9 @@
 
 .buttonBlue {
   display: block;
-  margin: 0 auto;
   background-color: var(--color-blue);
   width: 100%;
-  
+  margin:  30px 0 0 0;
   height: 60px;
   color: var(--color-white);
   font-size: 12px;
@@ -57,4 +60,10 @@
   letter-spacing: 0.07em;
   text-decoration: none;
   cursor: pointer;
+}
+
+.buttonBlue:disabled,
+.buttonBlue[disabled]{
+  background-color: #689ddf;
+  color: #FFFFFF;
 }
