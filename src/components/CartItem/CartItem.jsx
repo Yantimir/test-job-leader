@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-// import { Navigate } from "react-router-dom";
-import style from "./style.module.css";
+import style from "./CartItem.module.css";
 import { Icon24MinusOutline } from '@vkontakte/icons';
 import { Icon24Add } from '@vkontakte/icons';
 import { Icon20Cancel } from '@vkontakte/icons';
@@ -32,9 +31,9 @@ export const CartItem = ({ id, img, name, price, cartCount, totalPrice }) => {
             <button
               className={style.minus}
               onClick={() => setDecrementOrder(id)}
-              disabled={cartCount === 0}
+              disabled={cartCount === 1}
             >
-              <Icon24MinusOutline width={24} height={24} />
+              <Icon24MinusOutline width={24} height={24} style={{ color: "#000000" }}/>
             </button>
             <div className={style.cartCount}>{cartCount}</div>
             <button
@@ -42,7 +41,7 @@ export const CartItem = ({ id, img, name, price, cartCount, totalPrice }) => {
               onClick={() => setIncrementOrder(id)}
               disabled={cartCount >= 10}
             >
-              <Icon24Add width={24} height={24} />
+              <Icon24Add width={24} height={24} style={{ color: "#000000" }}/>
             </button>
           </div>
           <h3 className={style.price}>{price} ₽</h3>
@@ -52,7 +51,7 @@ export const CartItem = ({ id, img, name, price, cartCount, totalPrice }) => {
               removeFromBasket(id);
             }}
           >
-            <Icon20Cancel />
+            <Icon20Cancel style={{ color: "#000000" }}/>
           </button>
         </div>
       </div>
@@ -69,9 +68,9 @@ export const CartItem = ({ id, img, name, price, cartCount, totalPrice }) => {
           <button
             className={style.minus}
             onClick={() => setDecrementOrder(id)}
-            disabled={cartCount === 0}
+            disabled={cartCount === 1}
           >
-            <Icon24MinusOutline width={24} height={24} />
+            <Icon24MinusOutline width={24} height={24} style={{ color: "#000000" }}/>
           </button>
           <div className={style.cartCount}>{cartCount}</div>
           <button
@@ -79,14 +78,14 @@ export const CartItem = ({ id, img, name, price, cartCount, totalPrice }) => {
             onClick={() => setIncrementOrder(id)}
             disabled={cartCount >= 10}
           >
-            <Icon24Add width={24} height={24} />
+            <Icon24Add width={24} height={24} style={{ color: "#000000" }}/>
           </button>
         </div>
         <button className={style.buttonBlue} onClick={() => {
           removeFromBasket(id);
         }}>
           <div className={style.buttonText}>
-            <Icon20Cancel style={{ marginRight: "5px" }} /> Удалить
+            <Icon20Cancel style={{ marginRight: "5px", color: "#000000" }} /> Удалить
           </div>
         </button>
       </div>

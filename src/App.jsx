@@ -20,7 +20,8 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
+    // <div className="container">
+    <>
       <Header />
       <div className="content">
         <Routes>
@@ -29,7 +30,8 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </div>
+    </>
+    // </div>
   );
 }
 

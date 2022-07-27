@@ -9,14 +9,14 @@ export const Cards = () => {
   const { goods = [] } = useContext(ShopContext);
 
   return (
-    <>
+    <div className="container">
       <h1 className={style.title}>Каталог товаров</h1>
       <div className={style.cards}>
         {goods.length && goods.map(item => (
           <Card key={item.id} {...item} />
         ))}
       </div>
-    </>
+    </div>
 
   )
 }

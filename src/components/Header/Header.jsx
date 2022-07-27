@@ -28,16 +28,44 @@ export const Header = () => {
 
   if (width > breackpoint) {
     return (
+      <div className="container">
+        <div className={style.header}>
+          <div className={style.headerTitle}>
+            <Link to="/"><img src={leader} alt="Leader" /></Link>
+          </div>
+          {order.length
+            ? <Link to="/cart">
+              <div className={style.headerCart}>
+                <div className={style.cartWrapper}>
+                  <Cart className={style.cart} />
+                  <p>Корзина</p>
+                </div>
+                {order.length ? <span>{order.length}</span> : null}
+              </div>
+            </Link>
+            : <div className={style.headerCart}>
+              <div className={style.cartWrapper}>
+                <Cart className={style.cart} />
+                <p>Корзина</p>
+              </div>
+              {order.length ? <span>{order.length}</span> : null}
+            </div>
+          }
+        </div>
+      </div>
+    )
+  }
+  return (
+    <div className="container">
       <div className={style.header}>
         <div className={style.headerTitle}>
-          <Link to="/"><img src={leader} alt="Leader" /></Link>
+          <Link to="/"><img src={leaderSm} alt="Leader" /></Link>
         </div>
         {order.length
           ? <Link to="/cart">
             <div className={style.headerCart}>
               <div className={style.cartWrapper}>
                 <Cart className={style.cart} />
-                <p>Корзина</p>
               </div>
               {order.length ? <span>{order.length}</span> : null}
             </div>
@@ -45,35 +73,11 @@ export const Header = () => {
           : <div className={style.headerCart}>
             <div className={style.cartWrapper}>
               <Cart className={style.cart} />
-              <p>Корзина</p>
             </div>
             {order.length ? <span>{order.length}</span> : null}
           </div>
         }
       </div>
-    )
-  }
-  return (
-    <div className={style.header}>
-      <div className={style.headerTitle}>
-        <Link to="/"><img src={leaderSm} alt="Leader" /></Link>
-      </div>
-      {order.length
-        ? <Link to="/cart">
-          <div className={style.headerCart}>
-            <div className={style.cartWrapper}>
-              <Cart className={style.cart} />
-            </div>
-            {order.length ? <span>{order.length}</span> : null}
-          </div>
-        </Link>
-        : <div className={style.headerCart}>
-          <div className={style.cartWrapper}>
-            <Cart className={style.cart} />
-          </div>
-          {order.length ? <span>{order.length}</span> : null}
-        </div>
-      }
     </div>
   )
 }
