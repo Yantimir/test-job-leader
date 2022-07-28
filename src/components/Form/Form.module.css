@@ -23,13 +23,23 @@
   font-size: 16px;
   background-color: #ffffff;
 }
+
+.inputFormError {
+  padding: 20px 26px;
+  display: block;
+  margin:  30px 0 0 0;
+  width: 100%;
+  font-size: 16px;
+  background-color: #ffffff;
+  outline: 1px solid #E86880;
+}
 .inputForm:focus {
   outline: 1px solid #4892EC;
 }
 
 .errorMessage {
   text-align: start;
-  color: red;
+  color: #E86880;
   font-size: 12px;
   margin-top: 10px;
 }
@@ -66,4 +76,28 @@
 .buttonBlue[disabled]{
   background-color: #689ddf;
   color: #FFFFFF;
+}
+
+.messageTitle {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: var(--fw-500);
+  line-height: 130%;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.messageTitle span {
+  font-weight: var(--fw-700);
+}
+
+.messageText {
+  font-size: var(--fs-text);
+  font-weight: var(--fw-500);
+  line-height: 130%;
+}
+
+.messageText span{
+  font-weight: var(--fw-700);
 }

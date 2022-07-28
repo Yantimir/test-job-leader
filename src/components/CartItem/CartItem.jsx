@@ -10,7 +10,7 @@ export const CartItem = ({ id, img, name, price, cartCount, totalPrice }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const breackpoint = 690;
   const { removeFromBasket, setIncrementOrder, setDecrementOrder } = useContext(ShopContext);
-
+  
   useEffect(() => {
     const handleResizeWindow = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResizeWindow);
@@ -85,7 +85,7 @@ export const CartItem = ({ id, img, name, price, cartCount, totalPrice }) => {
           removeFromBasket(id);
         }}>
           <div className={style.buttonText}>
-            <Icon20Cancel style={{ marginRight: "5px", color: "#000000" }} /> Удалить
+            <Icon20Cancel style={{ marginRight: "5px"}} /> Удалить
           </div>
         </button>
       </div>

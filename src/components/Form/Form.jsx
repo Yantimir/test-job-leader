@@ -8,23 +8,23 @@ export const Form = () => {
 
   const [modalActive, setModalActive] = useState(false);
   const [dataForm, setDataForm] = useState([]);
+  let randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
+
   const {
     register,
     handleSubmit,
     formState: { errors, isValid, isDirty },
-    reset,
+    // reset,
   } = useForm({
     mode: "onBlur",
     defaultValues: { name: "", phone: "", email: "" }
   });
 
   function handleFormSubmit(data) {
-    // console.log(data);
     setDataForm(data);
     setModalActive(true);
-    reset();
+    // reset();
   }
-  console.log(dataForm);
 
   return (
     <>
@@ -34,7 +34,7 @@ export const Form = () => {
             <form className={style.form} onSubmit={handleSubmit(handleFormSubmit)}>
               <h3 className={style.title}>Пожалуйста, представьтесь</h3>
               <input
-                className={style.inputForm}
+                className={!errors?.name ? style.inputForm : style.inputFormError}
                 type="text"
                 {...register("name", {
                   required: "Поле обязательно к заполнению",
@@ -50,7 +50,7 @@ export const Form = () => {
                 {errors?.name && <p className={style.errorMessage}>{errors?.name.message}</p>}
               </div>
               <input
-                className={style.inputForm}
+                className={!errors?.phone ? style.inputForm : style.inputFormError}
                 type="phone"
                 {...register("phone", {
                   required: "Поле обязательно к заполнению",
@@ -66,7 +66,7 @@ export const Form = () => {
                 {errors?.phone && <p className={style.errorMessage}>{errors?.phone.message}</p>}
               </div>
               <input
-                className={style.inputForm}
+                className={!errors?.email ? style.inputForm : style.inputFormError}
                 type="text"
                 {...register("email", {
                   required: "Поле обязательно к заполнению",
@@ -93,8 +93,10 @@ export const Form = () => {
         active={modalActive}
         setActive={setModalActive}
         dataForm={dataForm}
-      />
+      >
+        <h4 className={style.messageTitle}>Спасибо <span>{dataForm.name},</span> ваш заказ <span>№{randomNumber}</span> оформлен.</h4>
+        <h6 className={style.messageText}>В ближайшее время мы свяжемся в вами по телефону <span>{dataForm.phone}</span> для его подтверждения.</h6>  
+      </Modal>
     </>
-
   )
 }
