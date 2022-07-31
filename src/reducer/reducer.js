@@ -5,6 +5,11 @@ export function reducer(state, action) {
         ...state,
         goods: action.payload || []
       }
+    case "SET_DATA_FORM":
+      return {
+        ...state,
+        dataForm: action.payload || []
+      }
     case "ADD_TO_BASKET": {
       let itemIndex = state.order.findIndex(oderItem => oderItem.id === action.payload.id);
       let newOrder = null;
@@ -25,7 +30,6 @@ export function reducer(state, action) {
         ...state,
         order: state.order.filter(item => item.id !== action.payload.id)
       }
-
     case "SET_INCREMENT_ORDER": {
       let newOrder = state.order.map(item => {
         if (item.id === action.payload.id) {

@@ -1,29 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import style from "./Form.module.css";
 import { useForm } from "react-hook-form";
 import Modal from "../Modal/Modal";
-
+import { ShopContext } from "../../context/context";
 
 export const Form = () => {
 
   const [modalActive, setModalActive] = useState(false);
-  const [dataForm, setDataForm] = useState([]);
+  const { setDataForm, dataForm, order } = useContext(ShopContext);
   let randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
-
+  console.log(order)
   const {
     register,
     handleSubmit,
     formState: { errors, isValid, isDirty },
-    // reset,
+    reset,
   } = useForm({
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: { name: "", phone: "", email: "" }
   });
 
   function handleFormSubmit(data) {
     setDataForm(data);
     setModalActive(true);
-    // reset();
+    reset();
   }
 
   return (
@@ -31,9 +31,10 @@ export const Form = () => {
       <div className={style.formSection}>
         <div className="container">
           <div className={style.wrapper}>
-            <form className={style.form} onSubmit={handleSubmit(handleFormSubmit)}>
+            <form method="POST" action="http://127.0.0.1:3000/cart" className={style.form} onSubmit={handleSubmit(handleFormSubmit)}>
               <h3 className={style.title}>Пожалуйста, представьтесь</h3>
               <input
+                name="name"
                 className={!errors?.name ? style.inputForm : style.inputFormError}
                 type="text"
                 {...register("name", {
@@ -50,6 +51,7 @@ export const Form = () => {
                 {errors?.name && <p className={style.errorMessage}>{errors?.name.message}</p>}
               </div>
               <input
+                name="phone"
                 className={!errors?.phone ? style.inputForm : style.inputFormError}
                 type="phone"
                 {...register("phone", {
@@ -66,8 +68,9 @@ export const Form = () => {
                 {errors?.phone && <p className={style.errorMessage}>{errors?.phone.message}</p>}
               </div>
               <input
+                name="email"
                 className={!errors?.email ? style.inputForm : style.inputFormError}
-                type="text"
+                type="email"
                 {...register("email", {
                   required: "Поле обязательно к заполнению",
                   pattern: {
@@ -95,7 +98,7 @@ export const Form = () => {
         dataForm={dataForm}
       >
         <h4 className={style.messageTitle}>Спасибо <span>{dataForm.name},</span> ваш заказ <span>№{randomNumber}</span> оформлен.</h4>
-        <h6 className={style.messageText}>В ближайшее время мы свяжемся в вами по телефону <span>{dataForm.phone}</span> для его подтверждения.</h6>  
+        <h6 className={style.messageText}>В ближайшее время мы свяжемся в вами по телефону <span>{dataForm.phone}</span> для его подтверждения.</h6>
       </Modal>
     </>
   )

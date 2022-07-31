@@ -13,17 +13,16 @@ function _Modal({ active, setActive, children }) {
             {
                 [style.active]: active
             })}
-            // onMouseDown={() => {
-            //     setActive(false);
-            //     navigate("/");
-            // }}
         >
             <div className={style.content} onMouseDown={(e) => e.stopPropagation()}>
                 <Icon20Cancel
+                    width={28}
+                    height={28}
                     className={style.crossIcon}
                     onClick={() => {
                         setActive(false);
                         navigate("/");
+                        window.location.reload();
                     }}
                 />
                 {children}

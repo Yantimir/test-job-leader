@@ -1,10 +1,18 @@
 import { createContext, useReducer } from "react";
-import { reducer } from "../reducer/reducer";
+import { reducer } from "../reducer/reducer.js";
 export const ShopContext = createContext();
 
 const initialState = {
   goods: [],
-  order: [],
+  order: [
+    // {
+    //   cartCount: 1,
+    //   id: 1,
+    //   name: "Увлажнитель воздуха STARWIND SHC1322, 3л, белый",
+    //   price: 1650
+    // }
+  ],
+  dataForm: []
 }
 
 export const ContextProvider = ({ children }) => {
@@ -13,6 +21,10 @@ export const ContextProvider = ({ children }) => {
 
   value.setGoods = (data) => {
     dispatch({ type: "SET_GOODS", payload: data });
+  }
+
+  value.setDataForm = (data) => {
+    dispatch({ type: "SET_DATA_FORM", payload: data });
   }
 
   value.addToBasket = (item) => {
@@ -30,6 +42,7 @@ export const ContextProvider = ({ children }) => {
   value.setDecrementOrder = (itemId) => {
     dispatch({ type: "SET_DECREMENT_ORDER", payload: { id: itemId } });
   }
+
   return (
     <ShopContext.Provider value={value}>
       {children}

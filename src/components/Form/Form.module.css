@@ -79,11 +79,11 @@
 }
 
 .messageTitle {
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: center;
   font-size: 24px;
   font-weight: var(--fw-500);
-  line-height: 130%;
+  line-height: 31px;
   padding: 0 10px;
   margin-bottom: 20px;
 }
@@ -95,7 +95,8 @@
 .messageText {
   font-size: var(--fs-text);
   font-weight: var(--fw-500);
-  line-height: 130%;
+  line-height: 21px;
+  margin-bottom: 10px;
 }
 
 .messageText span{
