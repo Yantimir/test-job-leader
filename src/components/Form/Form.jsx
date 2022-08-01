@@ -1,15 +1,18 @@
 import { useContext, useState } from "react";
 import style from "./Form.module.css";
-import { useForm } from "react-hook-form";
-import Modal from "../Modal/Modal";
 import { ShopContext } from "../../context/context";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+
+import Modal from "../Modal/Modal";
 
 export const Form = () => {
 
+  // const [ setSent ] = useState(false);
   const [modalActive, setModalActive] = useState(false);
-  const { setDataForm, dataForm, order } = useContext(ShopContext);
+  const { setDataForm, dataForm } = useContext(ShopContext);
   let randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
-  console.log(order)
+
   const {
     register,
     handleSubmit,
@@ -20,8 +23,19 @@ export const Form = () => {
     defaultValues: { name: "", phone: "", email: "" }
   });
 
+  const handleSend = async (data) => {
+		try {
+			await axios.post("http://localhost:4000/send_mail", {
+				data
+			})
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
   function handleFormSubmit(data) {
     setDataForm(data);
+    handleSend(data);
     setModalActive(true);
     reset();
   }
@@ -31,7 +45,10 @@ export const Form = () => {
       <div className={style.formSection}>
         <div className="container">
           <div className={style.wrapper}>
-            <form method="POST" action="http://127.0.0.1:3000/cart" className={style.form} onSubmit={handleSubmit(handleFormSubmit)}>
+            <form
+              className={style.form}
+              onSubmit={handleSubmit(handleFormSubmit)}
+            >
               <h3 className={style.title}>Пожалуйста, представьтесь</h3>
               <input
                 name="name"
