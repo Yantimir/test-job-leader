@@ -102,3 +102,15 @@
 .messageText span{
   font-weight: var(--fw-700);
 }
+
+@media (max-width: 320px){
+  .formSection {
+    margin-bottom: 50px;
+  }
+  .wrapper {
+    padding: 50px 0px 32px 0px;
+  }
+  .title {
+    line-height: 34px;
+  }
+}

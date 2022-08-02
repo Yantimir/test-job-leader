@@ -62,7 +62,7 @@ export const Form = () => {
                   required: "Поле обязательно к заполнению",
                   minLength: {
                     value: 5,
-                    message: "Введите минимум 5 букв"
+                    message: "Введите ваше имя"
                   }
                 })}
                 placeholder="Ваше имя"
@@ -77,10 +77,15 @@ export const Form = () => {
                 type="phone"
                 {...register("phone", {
                   required: "Поле обязательно к заполнению",
-                  minLength: {
-                    value: 11,
-                    message: "Введите минимум 11 цифр"
+                  pattern: {
+                    // eslint-disable-next-line no-useless-escape
+                    value: /^((\+7|7|8)+([0-9]){10})$/,
+                    message: "Введите ваш номер телефона"
                   }
+                  // minLength: {
+                  //   value: 11,
+                  //   message: "Введите телефон в формате 8-ХХХ-ХХХ-ХХХ-Х"
+                  // }
                 })}
                 placeholder="Телефон"
                 autoComplete="off"

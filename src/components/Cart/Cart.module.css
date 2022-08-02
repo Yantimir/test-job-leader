@@ -13,6 +13,12 @@
   margin-bottom: 65px;
 }
 
+@media (max-width: 930px) {
+  .total {
+    margin-right: 0;
+    font-size: var(--fs-h2);
+  }
+}
 @media (max-width: 690px) {
   .total {
     margin-right: 0;
@@ -21,8 +27,11 @@
   }
 }
 
-@media (max-width: 3200px) {
+@media (max-width: 320px) {
   .title {
     font-size: var(--fs-h2);
+  }
+  .total {
+    margin-bottom: 60px;
   }
 }

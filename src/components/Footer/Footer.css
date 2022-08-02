@@ -4,3 +4,9 @@
   border-top: 1px solid var(--color-light-grey);
   margin-top: 40px;
 }
+
+@media(max-width: 320px){
+  .footer {
+    margin-top: 0px;
+  }
+}
