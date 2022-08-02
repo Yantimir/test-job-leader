@@ -4,7 +4,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import nodemailer from "nodemailer";
 
-
 const app = express();
 dotenv.config();
 const {
@@ -21,8 +20,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/send_mail", cors(), async (req, res) => {
-	let { data, randomNumber } = req.body;
-	console.log(data, randomNumber)
+	let { data } = req.body;
+	console.log(data)
 	const transport = nodemailer.createTransport({
 		host: EMAIL_HOST,
 		port: EMAIL_PORT,
@@ -36,8 +35,8 @@ app.post("/send_mail", cors(), async (req, res) => {
 	await transport.sendMail({
 		from: EMAIL_HOST_USER,
 		to: data.email,
-		subject: "Тестовое задание, заказ №000000",
-		text: `${data.name}, заказ №000000 сформирован. В ближайшее время наш специалист свяжется с вами по телефону ${data.phone}.`
+		subject: `"Тестовое задание, заказ № ${data.randomNumber}"`,
+		text: `${data.name}, заказ № ${data.randomNumber} сформирован. В ближайшее время наш специалист свяжется с вами по телефону ${data.phone}.`
 	});
 })
 

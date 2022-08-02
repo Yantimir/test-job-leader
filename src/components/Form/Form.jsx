@@ -8,7 +8,7 @@ import Modal from "../Modal/Modal";
 
 export const Form = () => {
 
-  // const [ setSent ] = useState(false);
+  // const [ sent, setSent ] = useState(false);
   const [modalActive, setModalActive] = useState(false);
   const { setDataForm, dataForm } = useContext(ShopContext);
   let randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
@@ -24,6 +24,8 @@ export const Form = () => {
   });
 
   const handleSend = async (data) => {
+    // setSent(true);
+    // data.randomNumber = randomNumber;
 		try {
 			await axios.post("http://localhost:4000/send_mail", {
 				data
@@ -33,7 +35,9 @@ export const Form = () => {
 		}
 	}
 
+  console.log(dataForm)
   function handleFormSubmit(data) {
+    data.randomNumber = randomNumber;
     setDataForm(data);
     handleSend(data);
     setModalActive(true);
